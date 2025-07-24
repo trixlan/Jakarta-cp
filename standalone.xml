@@ -146,9 +146,9 @@
                     <security user-name="admin" password="Admin2_Admin2"/>
                 </datasource> -->
                 <datasource jndi-name="java:/hbiubicacion" pool-name="hbiubicacion" enabled="true" use-java-context="true">
-                    <connection-url>jdbc:sqlserver://pod-sqlserver:1433;databaseName=hub_informacion_db;trustServerCertificate=true</connection-url>
+                    <connection-url>jdbc:sqlserver://mssql:1433;databaseName=hub_informacion_db;trustServerCertificate=true</connection-url>
                     <driver>sqlserver</driver>
-                    <security user-name="admin" password="Admin2_Admin2"/>
+                    <security user-name="Admin" password="Admin_02"/>
                 </datasource>
 
                 <drivers>
