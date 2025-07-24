@@ -22,6 +22,9 @@ hs_err_pid*
 # Mac
 .DS_Store
 
+# Galleon
+galleon/
+
 # Maven
 log/
 logs/
