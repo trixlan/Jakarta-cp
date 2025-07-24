@@ -1,0 +1,159 @@
+{
+	"info": {
+		"_postman_id": "1be9389c-164d-43c6-b6ab-ec619982ac8b",
+		"name": "Catálogo de Estados",
+		"description": "Muesta las claves y el nombre del estado",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19183842"
+	},
+	"item": [
+		{
+			"name": "healthcheck",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/health",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "default response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/health",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"health"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "get All",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{prodUrl}}/estados",
+					"host": [
+						"{{prodUrl}}"
+					],
+					"path": [
+						"estados"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "default response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/estados",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"estados"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n  {\n    \"estadoId\": \"<string>\",\n    \"estado\": \"<string>\",\n    \"estadoNomenclatura\": \"<string>\"\n  },\n  {\n    \"estadoId\": \"<string>\",\n    \"estado\": \"<string>\",\n    \"estadoNomenclatura\": \"<string>\"\n  }\n]"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "devUrl",
+			"value": "https://079301WQ16.infonavit.net:9443/hbi-ubicacion-estado"
+		},
+		{
+			"key": "qaUrl",
+			"value": "https://079301WQ47.infonavit.net:9443/hbi-ubicacion-estado",
+			"type": "string"
+		},
+		{
+			"key": "prodUrl",
+			"value": "ttps://091402LSA002.infonavit.net:9443/hbi-ubicacion-estado",
+			"type": "string"
+		}
+	]
+}

@@ -1,0 +1,60 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mssql
+  namespace: codigo-postal
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mssql
+  template:
+    metadata:
+      labels:
+        app: mssql
+    spec:
+      securityContext:
+        fsGroup: 10001
+        runAsUser: 0
+      volumes:
+      - name: mssqldb
+        persistentVolumeClaim:
+          claimName: my-ocs-pvc
+      containers:
+      - name: mssql
+        # image: mcr.microsoft.com/mssql/rhel/server:2022-latest
+        image: docker.io/kcollins/mssql:latest
+        imagePullPolicy: "Always"
+        ports:
+        - containerPort: 1433
+          protocol: TCP
+        volumeMounts:
+          - name: mssqldb
+            mountPath: /var/opt/mssql
+        env:
+          - name: MSSQL_USER
+            valueFrom:
+              configMapKeyRef:
+                name: sqlserver
+                key: MSSQL_USER
+          - name: ACCEPT_EULA
+            valueFrom:
+              configMapKeyRef:
+                name: sqlserver
+                key: ACCEPT_EULA
+          - name: MSSQL_DATABASE
+            valueFrom:
+              configMapKeyRef:
+                name: sqlserver
+                key: MSSQL_DATABASE
+          - name: MSSQL_SA_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: sqlserver
+                key: SA_PASSWORD
+          - name: MSSQL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: sqlserver
+                key: PASSWORD

@@ -1,0 +1,53 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Catálogo de Estados",
+    "description" : "Muesta las claves y el nombre del estado",
+    "version" : "1.0.0"
+  },
+  "servers" : [ {
+    "url" : "https://079301WQ16.infonavit.net:9443/hbi-ubicacion-estado",
+    "description" : "Dev"
+  }, {
+    "url" : "https://079301WQ47.infonavit.net:9443/hbi-ubicacion-estado",
+    "description" : "QA"
+  }, {
+    "url" : "https://091402LSA002.infonavit.net:9443/hbi-ubicacion-estado",
+    "description" : "Prod"
+  } ],
+  "paths" : {
+    "/health" : {
+      "post" : {
+        "operationId" : "healthcheck",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/estados" : {
+      "post" : {
+        "operationId" : "getAll",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "additionalProperties" : {
+                    "type" : "object"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

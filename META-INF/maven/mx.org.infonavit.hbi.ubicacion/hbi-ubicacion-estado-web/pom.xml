@@ -1,0 +1,93 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>mx.org.infonavit.hbi.ubicacion</groupId>
+        <artifactId>hbi-ubicacion-estado</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>hbi-ubicacion-estado-web</artifactId>
+    <packaging>war</packaging>
+
+    <properties>
+        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <arquitectura-support-common.version>2.0.0</arquitectura-support-common.version>
+        <arquitectura-support-persistence.version>2.0.0</arquitectura-support-persistence.version>
+        <guava.version>33.3.1-jre</guava.version>
+        <jackson-core.version>2.14.1</jackson-core.version>
+        <commons-lang3.version>3.12.0</commons-lang3.version>
+        <io.swagger.core.v3.version>2.2.21</io.swagger.core.v3.version>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>mx.org.infonavit.arquitectura</groupId>
+            <artifactId>arquitectura-support-common</artifactId>
+            <version>${arquitectura-support-common.version}</version>
+        </dependency>
+
+<!--
+        <dependency>
+            <groupId>mx.org.infonavit.arquitectura</groupId>
+            <artifactId>arquitectura-support-persistence</artifactId>
+            <version>${arquitectura-support-persistence.version}</version>
+        </dependency>
+-->
+
+<!--
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>${io.swagger.core.v3.version}</version>
+        </dependency>
+-->
+
+    </dependencies>
+
+    <build>
+
+        <plugins>
+
+<!--
+            <plugin>
+                <groupId>io.swagger.core.v3</groupId>
+                <artifactId>swagger-maven-plugin</artifactId>
+                <version>${io.swagger.core.v3.version}</version>
+                <configuration>
+                    <outputFileName>hbi-ubicacion-estado</outputFileName>
+                    <outputPath>${project.basedir}/src/main/resources/swagger-ui</outputPath>
+                    <outputFormat>JSONANDYAML</outputFormat>
+                    <resourcePackages>
+                        <package>mx.org.infonavit.hbi.ubicacion</package>
+                    </resourcePackages>
+                    <prettyPrint>true</prettyPrint>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>resolve</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+-->
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${maven-war-plugin.version}</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+    </build>
+
+</project>
